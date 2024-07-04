@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .customcontainer {
+    @apply h-full w-full min-w-[60%] bg-gradient-to-r from-purple-700 to-purple-300 flex justify-center items-center overflow-y-scroll;
+  }
+}
+@layer components{
+  .inputbox{
+    @apply min-w-[320px] h-auto w-auto bg-white shadow-md p-6 rounded-lg flex flex-col gap-6;
+  }
+}
+
+@layer components{
+  .inputcontainer{
+    @apply rounded-md border-gray-300 outline-none px-4 py-3 w-full text-black border hover:border-cyan-500 ;
+  }
+}
+
+@layer components{
+  .btns{
+    @apply focus:outline-none focus:border-none bg-purple-600 text-white rounded-md font-bold text-base px-4 py-2 w-[50%] mt-5 transition duration-100 cursor-pointer
+  }
+}
+@layer components{
+  .buttonhead {
+    @apply text-white bg-gradient-to-r sm:px-4 sm:py-2.5 sm:text-base md:px-6 md:py-3 md:text-lg from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2;
+
+    /* Responsive variants */
+   
+  }
+}
