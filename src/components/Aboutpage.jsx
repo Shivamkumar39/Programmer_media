@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 const Aboutpage = () => {
     return (
         <>
-            <div className="2xl:container 2xl:mx-auto lg:px-20 md:py-0 p-5  mb-0 w-full h-full flex flex-col border overflow-y-scroll">
+            <div className="  lg:px-20 md:py-0 p-5  mb-0 w-full h-full flex flex-col overflow-y-scroll">
                 <p className="font-normal text-xm leading-3 text-indigo-700 hover:text-indigo-800 cursor-pointer pt-6">About</p>
                 <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
                     <div className="w-full lg:w-6/12">
@@ -23,7 +23,7 @@ const Aboutpage = () => {
                     </div>
                 </div>
 
-                <div className="relative mt-24">
+                <div className=" mt-24">
                     <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
                         <div className="z-20 w-12 h-12 bg-gray-800 rounded-full flex justify-center items-center">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +50,7 @@ const Aboutpage = () => {
                             <path d="M33 33.0001V31.0001C32.9949 30.1173 32.6979 29.2609 32.1553 28.5645C31.6126 27.8682 30.8548 27.3708 30 27.1501" stroke="white" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
-                    <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
+                  
                 </div>
                 <div className="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4 shadow-sm ">
                     <div>
@@ -76,7 +76,7 @@ const Aboutpage = () => {
                             <path d="M33 33.0001V31.0001C32.9949 30.1173 32.6979 29.2609 32.1553 28.5645C31.6126 27.8682 30.8548 27.3708 30 27.1501" stroke="white" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
-                    <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
+                    
                 </div>
                 <div className="sm:hidden grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
                     <div>

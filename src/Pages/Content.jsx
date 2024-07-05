@@ -72,7 +72,7 @@ const ContentList = ({ admin }) => {
           {filteredContents.map((content) => (
             <div
               key={content._id}
-              className="max-w-md w-full sm:w-auto h-auto justify-center rounded overflow-hidden shadow-lg mb-5 container sm:mr-5 items-center p-4"
+              className="lg:max-w-72 lg:min-w-72 md:max-w-72 md:min-w-72 sm:max-w-72 sm:min-w-72 max-w-md w-full sm:w-auto h-auto justify-center rounded overflow-hidden shadow-lg mb-5 container sm:mr-5 items-center p-4"
             >
               <div className="flex justify-center items-center p-4 cursor-pointer" onClick={() => handleViewPost(content)}>
                 <img
@@ -82,8 +82,8 @@ const ContentList = ({ admin }) => {
                 />
               </div>
               <div className="px-6 py-4">
-                <div className="h-24 bg-white rounded-b-lg shadow-sm p-6 cursor-pointer scrollbar-hide" onClick={() => handleViewPost(content)}>
-                <h2 className="text-xl font-semibold mb-2">{content.title}</h2>
+                <div className="h-24 bg-white rounded-b-lg shadow-sm p-6 cursor-pointer scrollbar-hide overflow-hidden" onClick={() => handleViewPost(content)}>
+                <h2 className="text-xl font-semibold mb-2 ">{content.title}</h2>
                  
                 </div>
 

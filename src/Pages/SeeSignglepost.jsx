@@ -22,23 +22,23 @@ const SeeSignglepost = () => {
           </div>
           <div className="flex flex-col mb-4">
             <span className="text-black font-bold mb-2">1. Link:</span>
-            <a
-              href={content.downloadLink}
+            <Link
+              to={content.downloadLink1}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-2"
             >
               Download Link
-            </a>
+            </Link>
             <span className="text-black font-bold mb-2">2. Link:</span>
-            <a
-              href={content.downloadLink}
+            <Link
+                to={content.downloadLink2}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Download Link
-            </a>
+            </Link>
           </div>
         </div>
       </div>

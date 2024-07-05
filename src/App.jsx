@@ -38,7 +38,7 @@ const App = () => {
           <Navbar  admin={admin}  />
           <div className='w-full h-[90dvh] box-border flex'>
         
-            <SideBar  admin={admin} />
+            {/* <SideBar  admin={admin} /> */}
             
             <div className='h-full w-full sm:w-[100%] md:w-[100%] lg:w-[100%] xl:w-[100%] border box-border'>
               <Routes>

@@ -244,6 +244,7 @@ app.post('/contents', fetchUser, upload.single('image'), [
   body('downloadLink1', 'Enter a valid download link').isURL(),
   body('downloadLink2', 'Enter a valid download link').isURL()
 ], async (req, res) => {
+
   const errors = validationResult(req);
 
 
@@ -252,10 +253,16 @@ app.post('/contents', fetchUser, upload.single('image'), [
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
+
+
   const { title, paragraph, description, downloadLink1, downloadLink2 } = req.body;
   const img = req.file ? `http://localhost:3000/uploads/${req.file.filename}` : '';
+
+
   try {
     const user = await User.findById(req.user.id);
+
+
     if (!user || !user.isAdmin) {
       return res.status(403).json({ error: 'Access denied' });
     }
@@ -273,6 +280,9 @@ app.post('/contents', fetchUser, upload.single('image'), [
 
     const savedContent = await content.save();
     res.json({ savedContent });
+    
+
+
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Internal Server Error");
