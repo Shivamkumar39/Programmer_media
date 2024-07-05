@@ -10,6 +10,8 @@ const ContentList = ({ admin }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -52,9 +54,53 @@ const ContentList = ({ admin }) => {
     navigate(`/editcontent/${content._id}`, { state: { content } });
   };
 
+  // const handleDelete = async (id) => {
+  //   try {
+  //     const response = await axios.delete(`http://localhost:3000/deletecontent`, {
+  //       data: { id }
+  //   });
+  //     console.log(response.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this content?")) {
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axios.delete('http://localhost:3000/deletecontent', {
+        data: { id }
+      });
+      console.log(response.data);
+
+      if (response.data.success) {
+        // Refresh the content list or handle UI update
+        alert('Content deleted successfully!');
+        window.location.reload(); // Reload the page to refresh the content list
+      } else {
+        setError('Failed to delete content');
+      }
+    } catch (error) {
+      console.error('Error:', error.response ? error.response.data : error.message);
+      setError('An error occurred while deleting content');
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+ 
+
   return (
     <>
       <div className="w-full h-full flex flex-col border">
+      {loading && <p>Loading...</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
         <div className="w-full flex justify-center p-4 md:px-5">
           <div className="relative w-full md:w-1/2 lg:w-1/3">
             <h1 className='font-bold text-black ml-10'>Download 500+ Softwares</h1>
@@ -128,6 +174,14 @@ const ContentList = ({ admin }) => {
                       className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 ml-2"
                     >
                       Edit
+                    </button>
+                  )}
+                   {isAdmin && (
+                    <button
+                      onClick={() => handleDelete(content._id)}
+                      className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 ml-2"
+                    >
+                      delete
                     </button>
                   )}
                 </div>

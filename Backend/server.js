@@ -10,6 +10,7 @@ import User from './schema/User.js'
 import Content from './schema/schema.js'
 import multer from 'multer';
 import path from 'path'
+import fs from 'fs'
 import { Route } from 'react-router-dom';
 //const fetchUser = require('./middleweare');
 
@@ -214,6 +215,7 @@ const storage = multer.diskStorage({
   },
 });
 
+
 // File filter to accept only images
 const fileFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image/')) {
@@ -288,6 +290,37 @@ app.post('/contents', fetchUser, upload.single('image'), [
     res.status(500).send("Internal Server Error");
   }
 });
+
+
+//delete content
+app.delete('/deletecontent', async (req, res) => {
+  try {
+    const content = await Content.findById(req.body.id);
+    if (!content) {
+      return res.status(404).json({ success: false, message: 'Content not found' });
+    }
+
+    // Correctly construct the file path
+    const filename = `./uploads/${path.basename(content.img)}`;
+    
+    // Delete the associated image file if it exists
+    if (fs.existsSync(filename)) {
+      fs.unlinkSync(filename);
+    } else {
+      console.warn(`File not found: ${filename}`);
+    }
+    // Delete the content from the database
+    await Content.findByIdAndDelete(req.body.id);
+
+    res.json({ success: true, message: 'Content removed' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Error: content not removed' });
+  }
+});
+
+
+
 
 // Get all content
 app.get('/Getcontents', async (req, res) => {
