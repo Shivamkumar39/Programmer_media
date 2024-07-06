@@ -20,7 +20,7 @@ const JWT_SECRET = 'your_jwt_secret123';
 
 
 // Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/mydatabase', {
+mongoose.connect('mongodb+srv://shivamkumar098798:dYAPQ3FWQydd1JSX@cluster0.2yzapfm.mongodb.net/', {   //  ongodb://127.0.0.1:27017/mydatabase
 
 }).then(() => {
   console.log('Connected to MongoDB');
