@@ -33,6 +33,7 @@ const contentSchema = new mongoose.Schema({
     description: { type: String, required: true },
     downloadLink1: { type: String, required: true },
     downloadLink2: { type: String },
+    Types: {type: String, require: true},
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 }, { timestamps: true });
 const Content = mongoose.model('Content', contentSchema);

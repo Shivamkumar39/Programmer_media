@@ -244,6 +244,7 @@ app.post('/contents', fetchUser, upload.single('image'), [
   body('paragraph', 'Paragraph must be at least 5 characters').isLength({ min: 5 }),
   body('description', 'Description must be at least 5 characters').isLength({ min: 5 }),
   body('downloadLink1', 'Enter a valid download link').isURL(),
+  body('Types'),
   body('downloadLink2', 'Enter a valid download link').isURL()
 ], async (req, res) => {
 
@@ -257,7 +258,7 @@ app.post('/contents', fetchUser, upload.single('image'), [
   }
 
 
-  const { title, paragraph, description, downloadLink1, downloadLink2 } = req.body;
+  const { title, paragraph, description, downloadLink1, downloadLink2, Types } = req.body;
   const img = req.file ? `http://localhost:3000/uploads/${req.file.filename}` : '';
 
 
@@ -277,6 +278,7 @@ app.post('/contents', fetchUser, upload.single('image'), [
       description,
       downloadLink1,
       downloadLink2,
+      Types,
       user: req.user.id
     });
 

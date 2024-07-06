@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from './Pages/register';
-import PrivateRoute from './Pages/PrivateRoute';
 import PostContent from './Pages/PostContent';
 import Login from './Pages/Login';
 import ContentList from './Pages/Content';
 import Navbar from './Pages/Navbar';
 import Aboutpage from './components/Aboutpage';
-import SideBar from './components/SideBar';
+
 import SeeSignglepost from './Pages/SeeSignglepost';
 import EditComponent from './components/edit';
 import Footer from './components/Footer';
