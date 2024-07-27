@@ -169,22 +169,44 @@ const ContentList = ({ admin }) => {
   };
 
 
+
+
+
+
+
+
   return (
     <>
       <div className="w-full h-full flex flex-col border">
-        <div className="w-full flex justify-center p-4 md:px-5">
-          <div className="relative w-full md:w-1/2 lg:w-1/3">
-            <h1 className='font-bold text-black ml-10'>Download 500+ Softwares</h1>
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={handleSearchChange}
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200"
-            />
-            <MagnifyingGlassIcon className="w-6 h-6 absolute left-2 top-2/3 transform -translate-y-1/2 text-gray-400" />
-          </div>
-        </div>
+      <div className="w-full flex flex-col items-center p-2 md:px-5">
+  <h1 className="font-bold text-black mb-2">Download 500+ Softwares</h1>
+
+  <div className="relative w-full md:w-1/2 lg:w-1/3 flex items-center">
+    <input
+      type="text"
+      placeholder="Search..."
+      value={searchQuery}
+      onChange={handleSearchChange}
+      className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:ring-blue-200"
+    />
+    <MagnifyingGlassIcon className="w-6 h-6 absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" />
+  </div>
+
+  {/* <form className="flex items-center mt-2">
+    <select
+      id="underline_select"
+      className="block py-2.5 px-4 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+    >
+      <option selected>Windows</option>
+      <option value="US">United States</option>
+      <option value="CA">Canada</option>
+      <option value="FR">France</option>
+      <option value="DE">Germany</option>
+    </select>
+  </form> */}
+</div>
+
+
 
         <div className="h-full w-full box-border overflow-x-hidden flex flex-wrap justify-center items-center pt-10 px-2 md:px-5">
           {currentItems.map((content) => (

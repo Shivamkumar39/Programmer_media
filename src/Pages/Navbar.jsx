@@ -9,7 +9,7 @@ const Navbar = ({ admin }) => {
     const checkAdminStatus = () => {
       const authToken = localStorage.getItem('authToken');
       if (authToken) {
-        const decodedToken = jwt_decode(authToken);
+        const decodedToken = authToken;
         if (decodedToken && decodedToken.user && decodedToken.user.isAdmin) {
           setIsAdmin(true);
         }
@@ -49,7 +49,7 @@ const Navbar = ({ admin }) => {
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-16">
             <div className="flex-shrink-0">
-              <h2>Software Downloader</h2>
+              <Link to='/'><h2 className='font-bold '>Software Downloader</h2></Link>
             </div>
 
 
