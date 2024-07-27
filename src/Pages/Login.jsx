@@ -10,7 +10,7 @@ const Login = ({handelAdmin}) => {
     const [formData, setFormData] = useState({
         username: '',
         password: ''
-    });
+    })
     const [errormsg, setErrormsg] = useState('');
     const navigate = useNavigate();
 
